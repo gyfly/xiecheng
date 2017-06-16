@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font: 400 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+            overflow-x: hidden;
+            margin: 0 auto;
+            background: #f2f2f2;
+        }
+        
+        @media screen and (min-width:320px) and (max-width:339) {
+            html {
+                font-size: 14px;
+            }
+        }
+        
+        @media screen and (min-width:340px) and (max-width:439px) {
+            html {
+                font-size: 16px;
+            }
+        }
+        
+        @media screen and (min-width:440px) {
+            html {
+                font-size: 18px;
+            }
+        }
+        
+        .box {
+            width: 100%;
+        }
+        
+        .top {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            z-index: 12;
+            width: 100%;
+            height: 3.21em;
+            padding: 7px 3.57em 7px 8px;
+            background-color: #F6F6F6;
+            border-bottom: 1px solid #CCC;
+            border-top: 1px solid #CCC;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            min-width: 320px;
+            max-width: 540px;
+            box-sizing: border-box;
+        }
+        
+        #search {
+            width: 75%;
+            height: 2em;
+            overflow: hidden;
+            padding: 0 5px;
+            line-height: 2em;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #666;
+            font-size: .86em;
+            border: 1px solid #999;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+            margin-left: 5px;
+            outline: none;
+            text-indent: 20px;
+            /*text-indent 属性规定文本块中首行文本的缩进。
+ 注释：允许使用负值。如果使用负值，那么首行会被缩进到左边。*/
+        }
+        
+        .top span {
+            position: absolute;
+            top: 50%;
+            left: 1.2em;
+            margin-top: -11px;
+            width: 15px;
+            height: 18px;
+            background: url(imgs/6.png);
+            background-position: -59px -276px;
+            background-size: 104px 326px;
+        }
+        
+        #user {
+            width: 44px;
+            height: 44px;
+            position: absolute;
+            top: 50%;
+            margin-top: -22px;
+            right: 4px;
+        }
+        
+        #head {
+            width: 24px;
+            height: 26px;
+            background: url(imgs/6.png);
+            background-position: -59px -193px;
+            background-size: 104px 328px;
+            margin-left: 10px;
+            margin-top: 4px;
+        }
+        
+        #user p {
+            text-align: center;
+            font-size: .7rem;
+            letter-spacing: .3rem;
+            color: #2EAAE0;
+            margin-top: -3px;
+            white-space: nowrap;
+            bottom: 1px;
+        }
+        
+        .slider {
+            width: 100%;
+            height: 74px;
+            margin-top: 3.22em;
+        }
+        
+        .slider img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .nav {
+            width: 98%;
+            margin: 0 auto;
+            height: 6em;
+            margin-top: 4px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            box-sizing: border-box;
+        }
+        
+        .first {
+            height: 100%;
+            flex: 0 0 33.3333%;
+            background: #ff697a;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            box-sizing: border-box;
+            float: left;
+        }
+        
+        .first .hotel {
+            width: 100%;
+            height: 50%;
+            text-align: center;
+            color: #fff;
+            font-size: 1rem;
+            text-shadow: 0 2px 1px rgba(0, 0, 0, .2);
+            line-height: 3rem;
+        }
+        
+        .fun {
+            width: 100%;
+            height: 50%;
+            text-align: center;
+            color: #fff;
+            font-size: 1rem;
+            text-shadow: 0 2px 1px rgba(0, 0, 0, .2);
+            line-height: 3rem;
+            border-bottom: 1px solid #F6F6F6;
+        }
+        
+        .card {
+            width: 100%;
+            height: 50%;
+            text-align: center;
+            color: #fff;
+            font-size: 1rem;
+            text-shadow: 0 2px 1px rgba(0, 0, 0, .2);
+            line-height: 3rem;
+        }
+        
+        .middle {
+            height: 100%;
+            background: #ff697a;
+            margin-left: 1px;
+            box-sizing: border-box;
+            flex: 0 0 33.3333%;
+        }
+        
+        .foreign {
+            width: 100%;
+            height: 50%;
+            text-align: center;
+            color: #fff;
+            font-size: 1rem;
+            text-shadow: 0 2px 1px rgba(0, 0, 0, .2);
+            line-height: 3rem;
+            border-bottom: 1px solid #F6F6F6;
+        }
+        
+        .cheap {
+            width: 100%;
+            height: 50%;
+            text-align: center;
+            color: #fff;
+            font-size: 1rem;
+            text-shadow: 0 2px 1px rgba(0, 0, 0, .2);
+            line-height: 3rem;
+        }
+        
+        .last {
+            height: 100%;
+            background: #ff697a;
+            margin-left: 1px;
+            box-sizing: border-box;
+            flex: 0 0 33.3333%;
+        }
+        
+        .shop {
+            width: 100%;
+            height: 50%;
+            text-align: center;
+            color: #fff;
+            font-size: 1rem;
+            text-shadow: 0 2px 1px rgba(0, 0, 0, .2);
+            line-height: 3rem;
+            border-bottom: 1px solid #F6F6F6;
+        }
+        
+        .bottom {
+            width: 100%;
+            height: 50%;
+            text-align: center;
+            color: #fff;
+            font-size: 1rem;
+            text-shadow: 0 2px 1px rgba(0, 0, 0, .2);
+            line-height: 3rem;
+        }
+        
+        .nav1 {
+            width: 98%;
+            margin: 0 auto;
+            height: 6em;
+            margin-top: 4px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            box-sizing: border-box;
+        }
+        
+        .nav1 .first {
+            height: 100%;
+            flex: 0 0 33.3333%;
+            background: #3d98ff;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            box-sizing: border-box;
+            float: left;
+        }
+        
+        .nav1 .middle {
+            height: 100%;
+            background: #3d98ff;
+            margin-left: 1px;
+            box-sizing: border-box;
+            flex: 0 0 33.3333%;
+        }
+        
+        .nav1 .last {
+            height: 100%;
+            background: #3d98ff;
+            margin-left: 1px;
+            box-sizing: border-box;
+            flex: 0 0 33.3333%;
+        }
+        
+        .nav2 {
+            width: 98%;
+            margin: 0 auto;
+            height: 6em;
+            margin-top: 4px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            box-sizing: border-box;
+        }
+        
+        .nav2 .first {
+            height: 100%;
+            flex: 0 0 33.3333%;
+            background: #44c522;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            box-sizing: border-box;
+            float: left;
+        }
+        
+        .nav2 .middle {
+            height: 100%;
+            background: #44c522;
+            margin-left: 1px;
+            box-sizing: border-box;
+            flex: 0 0 33.3333%;
+        }
+        
+        .nav2 .last {
+            height: 100%;
+            background: #44c522;
+            margin-left: 1px;
+            box-sizing: border-box;
+            flex: 0 0 33.3333%;
+        }
+        
+        .nav3 {
+            width: 98%;
+            margin: 0 auto;
+            height: 6em;
+            margin-top: 4px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            box-sizing: border-box;
+        }
+        
+        .nav3 .first {
+            height: 100%;
+            flex: 0 0 33.3333%;
+            background: #fc9720;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            box-sizing: border-box;
+            float: left;
+        }
+        
+        .nav3 .middle {
+            height: 100%;
+            background: #fc9720;
+            margin-left: 1px;
+            box-sizing: border-box;
+            flex: 0 0 33.3333%;
+        }
+        
+        .nav3 .last {
+            height: 100%;
+            background: #fc9720;
+            margin-left: 1px;
+            box-sizing: border-box;
+            flex: 0 0 33.3333%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="top">
+            <input type="text" name="" placeholder="搜索:目的地/酒店/景点/航班号" id="search">
+            <span></span>
+            <div id="user">
+                <div id="head">
+
+                </div>
+                <p>我的</p>
+            </div>
+        </div>
+        <div class="slider">
+            <img src="imgs/5.jpg" alt="">
+        </div>
+        <div class="nav">
+            <div class="first">
+                <div class="hotel">
+                    酒店
+                </div>
+            </div>
+            <div class="middle">
+                <div class="foreign">
+                    海外酒店
+                </div>
+                <div class="cheap">
+                    特价酒店
+                </div>
+            </div>
+            <div class="last">
+                <div class="shop">
+                    团购
+                </div>
+                <div class="bottom">
+                    民宿.客栈
+                </div>
+            </div>
+
+        </div>
+        <div class="nav1">
+            <div class="first">
+                <div class="hotel">
+                    机票
+                </div>
+
+
+            </div>
+            <div class="middle">
+                <div class="foreign">
+                    火车票.抢票
+                </div>
+                <div class="cheap">
+                    特价机票
+                </div>
+            </div>
+            <div class="last">
+                <div class="shop">
+                    汽车票.船票
+                </div>
+                <div class="bottom">
+                    专车.租车
+                </div>
+            </div>
+
+        </div>
+        <div class="nav2">
+            <div class="first">
+                <div class="hotel">
+                    旅游
+                </div>
+
+            </div>
+            <div class="middle">
+                <div class="foreign">
+                    目的地攻略
+                </div>
+                <div class="cheap">
+                    周边游
+                </div>
+            </div>
+            <div class="last">
+                <div class="shop">
+                    游轮
+                </div>
+                <div class="bottom">
+                    定制旅行
+                </div>
+            </div>
+
+        </div>
+        <div class="nav3">
+            <div class="first">
+                <div class="fun">
+                    景点.玩乐
+                </div>
+                <div class="card">
+                    礼品卡
+                </div>
+            </div>
+            <div class="middle">
+                <div class="foreign">
+                    美食林
+                </div>
+                <div class="cheap">
+                    WiFi.电话卡
+                </div>
+            </div>
+            <div class="last">
+                <div class="shop">
+                    全球购.换汇
+                </div>
+                <div class="bottom">
+                    保险.签证
+                </div>
+            </div>
+
+        </div>
+</body>
+
+</html>
